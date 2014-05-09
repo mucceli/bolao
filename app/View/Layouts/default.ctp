@@ -23,13 +23,13 @@
 			</div>
 			<div class="g-980 header-cnt">
 				<span class="header-mascote"></span>
-				<h1 class="header-logo">Bolão boleia</h1>
+				<a href="<?php echo $this->webroot?>"><h1 class="header-logo">Bolão boleia</h1></a>
 				<!-- FAzer if para usuario logado ou n. E se tiver logado if para administrador -->
 				<ul class="header-nav">
-					<li><a href="jogos">Jogos</a></li>
-					<li><a href="equipes">Equipes</a></li>
-					<li><a href="apostas">Apostas</a></li>
-					<li><a href="users">Usuario</a></li>
+					<li><a href="<?php echo $this->webroot.'jogos'?>">Jogos</a></li>
+					<li><a href="<?php echo $this->webroot.'equipes'?>">Equipes</a></li>
+					<li><a href="<?php echo $this->webroot.'apostas'?>">Apostas</a></li>
+					<li><a href="<?php echo $this->webroot.'users'?>">Usuario</a></li>
 
 
 	
