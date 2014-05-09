@@ -32,17 +32,19 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
-	/*public $components = array(
+	public $components = array(
         'Session', 'Auth' => array(
             'loginRedirect' => array('controller' => 'pages', 'action' => 'home'),
             'logoutRedirect' => array('controller' => 'pages', 'action' => 'home'),
-            'authError'=>'Você não tem autorização para acessar essa página',
-            'authorize' => array('Controller')
+            'authError'=>'Você não tem autorização para acessar essa página'
+            //'authorize' => array('Controller')
         )
-    );*/
+    );
 
     public function beforeFilter() {
-        
+        $this->Auth->allow('index','cadastrar','display');
+        $userlogged = $this->Session->read('Auth.User.username'); 
+        $this->set('usuariologado', $userlogged);
     }
     
     
@@ -55,8 +57,8 @@ class AppController extends Controller {
         return false;
     }
 
-    public function login() {
-        $this->layout = 'default_site';
+    public function login() {   
+
         if(!empty($this->data)){
             //TODO validar se esta vazio primeiro
             $theUser = $this->User->findByUsername($this->data['User']['username']);

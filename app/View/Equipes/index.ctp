@@ -4,9 +4,6 @@
 <body>
 	Lista as equipes.<br>
 
-	<a href="cadastro_equipes">Editar equipes</a>
-	<a href="cadastro_equipes">Excluir equipes</a>
-
 	<?php echo $this->Session->flash(); ?>
 	    <table class="table table-bordered table-striped table-hover">
 	        <tr>
@@ -19,8 +16,8 @@
 	            <tr>
 	                <td><?php echo $equipe["Equipe"]["nome"] ?></td>
 	                <td style="width: 35px;">
-	                    <?php echo $this->Form->postLink('', array('action' => 'excluir', $equipe["Equipe"]["id"]),array('confirm' => 'Voce tem certeza?','class' =>'botao-acoes excluir','title'=>'Excluir'));?>
-	                    <?php echo $this->Form->postLink('', array('action' => 'editar_Equipe', $equipe["Equipe"]["id"]),array('class' =>'botao-acoes editar','title'=>'Editar')); ?>
+	                    <?php echo $this->Form->postLink('Excluir', array('action' => 'excluir', $equipe["Equipe"]["id"]),array('confirm' => 'Voce tem certeza?','class' =>'botao-acoes excluir','title'=>'Excluir'));?>
+	                    <?php echo $this->Form->postLink('Editar', array('action' => 'editar_Equipe', $equipe["Equipe"]["id"]),array('class' =>'botao-acoes editar','title'=>'Editar')); ?>
 	                </td>
 	            </tr>
 

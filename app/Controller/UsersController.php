@@ -7,14 +7,15 @@
 class UsersController extends AppController {
         
     public $paginate = array(
-        'limit' => 10,
+        'limit' => 15,
         'order' => array(
             'Categoria.nome' => 'asc'
         )
     );           
     
     public function index() {
-          
+        $usuarios = $this->paginate('User');
+        $this->set('usuarios', $usuarios);  
     }
 
     public function cadastrar(){

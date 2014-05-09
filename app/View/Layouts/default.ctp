@@ -3,8 +3,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
+	Bolão Boleia - GALO DOIDO!
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -18,7 +17,12 @@
 		<header id="header">
 			<div class="header-bar">
 				<div class="g-980">
-				Dados do usuario logado <a href="#">Link para sair</a>
+				<?php if($usuariologado){?>
+						Bem vindo, você é o 4º colocado <a href="<?php echo $this->webroot.'users/logout' ?>">Logout
+                       </a> 
+					<?php }else {?>
+						 <a href="<?php echo $this->webroot.'users/login' ?>">Entrar</a>
+					<?php }?>
 				</div>
 			</div>
 			<div class="g-980 header-cnt">
@@ -27,14 +31,16 @@
 				<!-- FAzer if para usuario logado ou n. E se tiver logado if para administrador -->
 				<ul class="header-nav">
 					<li><a href="<?php echo $this->webroot.'jogos'?>">Jogos</a></li>
-					<li><a href="<?php echo $this->webroot.'equipes'?>">Equipes</a></li>
+					<?php if(!$usuariologado){?>
+						<li><a href="<?php echo $this->webroot.'equipes'?>">Equipes</a></li>
+					<?php }else {?>
+					<?php }?>
+					
 					<li><a href="<?php echo $this->webroot.'apostas'?>">Apostas</a></li>
 					<li><a href="<?php echo $this->webroot.'users'?>">Usuario</a></li>
-
-
-	
-
-	
+					<li><a href="<?php echo $this->webroot.'regras'?>">Ranking</a></li>
+					<li><a href="<?php echo $this->webroot.'regras'?>">Regras</a></li>
+					<li><a href="<?php echo $this->webroot.'pagamento'?>">Pagamento</a></li>
 				</ul>
 			</div>
 		</header>
