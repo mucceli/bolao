@@ -6,22 +6,23 @@
  */
 class ApostasController extends AppController {
         
-    var $uses = array('Categoria','Subcategoria'); 
+     var $uses = array('Jogo','Equipe','EquipeJogo'); 
     
     public $paginate = array(
-        'limit' => 10,
+        'limit' => 15,
         'order' => array(
             'Categoria.nome' => 'asc'
         )
     );           
     
-     /**
-     * Método necessário para adequar as convenções do Cake. Nome do file é  "painel_cadastrar_categoria.ctp"
-     */
     public function index() {
-          
+        $jogos = $this->paginate('Jogo');        
+        $this->set('jogos', $jogos);  
     }
    
+    public function apostar($id) {
+        
+    }
 }
 
 ?>

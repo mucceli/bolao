@@ -32,6 +32,8 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
+    var $uses = array('User'); 
+
 	public $components = array(
         'Session', 'Auth' => array(
             'loginRedirect' => array('controller' => 'pages', 'action' => 'home'),
@@ -42,13 +44,22 @@ class AppController extends Controller {
     );
 
     public function beforeFilter() {
-        $this->Auth->allow('index','cadastrar','display');
+        $this->Auth->allow('index','display','cadastrar','add');
         $userlogged = $this->Session->read('Auth.User.username'); 
         $this->set('usuariologado', $userlogged);
+        
+        if($userlogged){
+            $user = $this->User->findByUsername($userlogged);
+            $userAdmin = false;
+            if($user['User']['role'] == 'admin'){
+                $userAdmin = true;
+            }
+            $this->set('userAdmin', $userAdmin);
+        }
     }
     
     
-    public function isAuthorized($user) {
+    public function isAuthorized($user) {        
         // Admin can access every action
         if (isset($user['role']) && $user['role'] === 'admin') {            
             return true;
