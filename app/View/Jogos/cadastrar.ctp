@@ -2,8 +2,8 @@
 <?php echo $this->Session->flash(); ?>
 <h1>Cadastro de jogos</h1>
 <?php echo $this->Form->input('Jogo.dataJogo', array('label' => 'Email')); ?>
-<?php echo $this->Form->input('Jogo.idEquipe1',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe 1', 'empty' => '-- Selecione uma seleção --')); ?>
-<?php echo $this->Form->input('Jogo.idEquipe2',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe 2', 'empty' => '-- Selecione uma seleção --')); ?>
+<?php echo $this->Form->input('EquipeJogo.equipe_id',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe 1', 'empty' => '-- Selecione uma seleção --')); ?>
+<?php echo $this->Form->input('segunda_equipe_id',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe 2', 'empty' => '-- Selecione uma seleção --')); ?>
 <br></br>
 
 <div>

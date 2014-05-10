@@ -38,7 +38,7 @@
 					
 					<li><a href="<?php echo $this->webroot.'apostas'?>">Apostas</a></li>
 					<li><a href="<?php echo $this->webroot.'users'?>">Usuario</a></li>
-					<li><a href="<?php echo $this->webroot.'regras'?>">Ranking</a></li>
+					<li><a href="<?php echo $this->webroot.'ranking'?>">Ranking</a></li>
 					<li><a href="<?php echo $this->webroot.'regras'?>">Regras</a></li>
 					<li><a href="<?php echo $this->webroot.'pagamento'?>">Pagamento</a></li>
 				</ul>

@@ -14,9 +14,9 @@
 	        <?php
 	        foreach ($jogos as $jogo):
 	            ?>
-	            <tr>
-	            	<td><?php echo $jogo["Jogo"]["dataJogo"] ?></td>
-	                <td><?php echo $jogo["Jogo"]["dataJogo"] ?></td>
+	            <tr> 
+	            	<td><?php echo $jogo["Equipe"][0]["nome"] ?> x <?php echo $jogo["Equipe"][1]["nome"] ?></td>
+	                <td><?php echo date("d/m/Y", strtotime($jogo["Jogo"]["dataJogo"])); ?></td>
 	                <td style="width: 35px;">
 	                <?php echo $this->Form->postLink('Registrar um resultado', array('action' => 'registrar_resultado', $jogo["Jogo"]["id"]),array('class' =>'botao-acoes editar','title'=>'Editar')); ?>
 
