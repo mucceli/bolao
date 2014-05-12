@@ -25,6 +25,7 @@
 	Mensagem de sucesso/erro usuario<br>
 	Tela das regras<br>
 	Layout Ranking<br>
+	Dedinho no mouse para botões<br>
 	
 </body>
 </html>

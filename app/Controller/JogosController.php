@@ -39,21 +39,24 @@ class JogosController extends AppController {
         }
     }
 
-    public function registrar_resultado($id) {
-        $jogo = $this->Jogo->findById($id);
-        $this->set('jogo', $jogo);
+    public function registrar_resultado() {
+        $jogos = $this->paginate('Jogo');        
+        //pr($jogos);exit;
+        $this->set('jogos', $jogos);  
     }
 
     public function salvar_resultado() {
-        pr($this->data);exit;
-        // if (!empty($this->data)) {
-        //     // se os dados do formulário puderam ser validados e salvos...
-        //     if ($this->Jogo->save($this->data)) {
-        //         // define uma mensagem de flash na sessão e redireciona.
-        //         $this->Session->setFlash("Jogo salvo com sucesso!", "default", array('class' => ''));
-        //         $this->redirect(array('controller' => 'Jogos','action' => 'index'));
-        //     }
-        // }
+        if (!empty($this->data)) {
+            $jogo = $this->data;
+            //pr($this->data);exit;
+            $this->Jogo->id = $jogo["Jogo"]["id"];
+            // se os dados do formulário puderam ser validados e salvos...
+            if ($this->Jogo->save($jogo)) {
+
+                $this->Session->setFlash("Jogo salvo com sucesso!", "default", array('class' => ''));
+                $this->redirect(array('controller' => 'Jogos','action' => 'index'));
+            }
+        }
     }
    
 }

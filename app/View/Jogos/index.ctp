@@ -16,12 +16,10 @@
 	            ?>
 	            <tr> 
 	            	<td><?php echo date("d/m/Y", strtotime($jogo["Jogo"]["dataJogo"])); ?></td>
-	            	<td><?php echo $jogo["Equipe"][0]["nome"] ?> x <?php echo $jogo["Equipe"][1]["nome"] ?></td>             
-	                <td style="width: 35px;">
-	                <?php echo $this->Form->postLink('Registrar um resultado', array('action' => 'registrar_resultado', $jogo["Jogo"]["id"]),array('class' =>'botao-acoes editar','title'=>'Editar')); ?>
-
-	                    <?php echo $this->Form->postLink('', array('action' => 'excluir', $jogo["Jogo"]["id"]),array('confirm' => 'Voce tem certeza?','class' =>'botao-acoes excluir','title'=>'Excluir'));?>
-	                    <?php echo $this->Form->postLink('', array('action' => 'editar_jogo', $jogo["Jogo"]["id"]),array('class' =>'botao-acoes editar','title'=>'Editar')); ?>
+	            	<td><?php echo $jogo["Equipe"][0]["nome"] ?> x <?php echo $jogo["Equipe"][1]["nome"] ?></td> <td style="width: 35px;">
+		            	<?php if(!empty($jogo["Jogo"]["golsTime1"]) && !empty($jogo["Jogo"]["golsTime2"])){?>
+							<?php echo $jogo["Jogo"]["golsTime1"] ?> x <?php echo $jogo["Jogo"]["golsTime2"] ?>
+						<?php }?>
 	                </td>
 	            </tr>
 

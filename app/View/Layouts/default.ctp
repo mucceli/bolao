@@ -46,6 +46,9 @@
 
 					<li><a href="<?php echo $this->webroot.'ranking'?>">Ranking</a></li>
 					<li><a href="<?php echo $this->webroot.'regras'?>">Regras</a></li>
+					<?php if($usuariologado && $userAdmin){?>
+						<li><a href="<?php echo $this->webroot.'jogos/registrar_resultado'?>">Resultados</a></li>
+					<?php }?>
 					<li><a href="<?php echo $this->webroot.'jogos'?>">Jogos</a></li>
 					<?php if($usuariologado){?>
 						<li><a href="<?php echo $this->webroot.'pagamento'?>">Pagamento</a></li>
