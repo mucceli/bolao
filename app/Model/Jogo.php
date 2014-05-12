@@ -12,6 +12,8 @@ class Jogo extends AppModel {
                 'unique' => true               
             )
     );
+
+    var $hasMany = array('Aposta');    
 }
 
 ?>

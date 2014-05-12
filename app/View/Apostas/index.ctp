@@ -12,14 +12,23 @@
 	            <th></th>
 	        </tr>
 	        <?php
-	        foreach ($jogos as $jogo):
+	        foreach ($apostas as $aposta):
 	            ?>
 	            <tr> 
 	            <form action="<?php echo $this->webroot.'apostas/apostar'?>" method="POST">
-	            	<td><?php echo date("d/m/Y", strtotime($jogo["Jogo"]["dataJogo"])); ?></td>
-	            	<td><?php echo $jogo["Equipe"][0]["nome"] ?><input type="text"> x <input type="text"> <?php echo $jogo["Equipe"][1]["nome"] ?></td>             
+	            	<td>
+	            	<?php echo date("d/m/Y", strtotime($aposta["Jogo"]["dataJogo"])); ?>
+	            	<!--$jogo["Jogo"]["id"]-->
+	            	</td>
+	            	<td><?php echo $aposta["Jogo"]["Equipe"][0]["nome"] ?>
+	            	<input name="data[Aposta][jogo_id]" class="inp-text" maxlength="255" type="hidden" value="<?php echo $aposta["Jogo"]["id"] ?>">
+	            	<input name="data[Aposta][golsTime1]" class="inp-text" maxlength="255" type="text" 
+	            	value="<?php echo $aposta["Aposta"]["golsTime1"]?>">
+	            	 x 
+	            	<input name="data[Aposta][golsTime2]" class="inp-text" maxlength="255" type="text"
+	            	value="<?php echo $aposta["Aposta"]["golsTime2"]?>"> <?php echo $aposta["Jogo"]["Equipe"][1]["nome"] ?></td>             
 	                <td style="width: 35px;">
-	                <?php echo $this->Form->postLink('Apostar', array('action' => 'apostar', $jogo["Jogo"]["id"]),array('class' =>'btapostar','title'=>'Editar')); ?>
+	                <input type="submit" class="bt bt-v btapostar" value="$ Apostar"/>
 	                </td>
 	             </form>
 	            </tr>
