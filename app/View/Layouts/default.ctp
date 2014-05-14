@@ -21,7 +21,7 @@
 						Bem vindo, você é o 4º colocado <a href="<?php echo $this->webroot.'users/logout' ?>">Logout
                        </a> 
 					<?php }else {?>
-						 <a href="<?php echo $this->webroot.'users/cadastrar' ?>">Cadastre-se</a>
+						 <a href="<?php echo $this->webroot.'users/cadastrar' ?>">Cadastre-se</a> | 
 						 <a href="<?php echo $this->webroot.'users/login' ?>">Entrar</a>
 					<?php }?>
 				</div>
@@ -57,8 +57,9 @@
 			</div>
 		</header>
 		<div id="content" class="g-980">
-
-			<?php echo $this->Session->flash(); ?>
+			<div id="retornoMensagem">
+				<?php echo $this->Session->flash(); ?>
+			</div>
 			<?php echo $this->fetch('content'); ?>
 		</div>
 </body>
