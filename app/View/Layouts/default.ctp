@@ -18,7 +18,7 @@
 			<div class="header-bar">
 				<div class="g-980">
 				<?php if($usuariologado){?>
-						Bem vindo, você é o 4º colocado <a href="<?php echo $this->webroot.'users/logout' ?>">Logout
+						Bem vindo, você é o 4º colocado  | <a href="<?php echo $this->webroot.'users/logout' ?>">Logout
                        </a> 
 					<?php }else {?>
 						 <a href="<?php echo $this->webroot.'users/cadastrar' ?>">Cadastre-se</a> | 
@@ -57,9 +57,6 @@
 			</div>
 		</header>
 		<div id="content" class="g-980">
-			<div id="retornoMensagem">
-				<?php echo $this->Session->flash(); ?>
-			</div>
 			<?php echo $this->fetch('content'); ?>
 		</div>
 </body>

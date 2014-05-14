@@ -73,3 +73,7 @@ table.table tbody tr:nth-child(odd){
 
 .ico.editar{width: 15px; height: 15px; background-position: -134px -76px}
 .ico.editar:hover{background-position: -150px -76px}
+
+
+.message{padding: 10px; background: #9CCDB6; border:solid 1px #00A558; border-radius: 3px; color:#00A558}
+.message.erro{background: #F0C1B2; border:solid 1px #c30; color:#c30;}
