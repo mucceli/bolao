@@ -7,7 +7,7 @@
 App::import('Aposta');
 class ApostasController extends AppController {
         
-     var $uses = array('Aposta','Jogo','Equipe','EquipeJogo'); 
+     var $uses = array('Aposta','Jogo','Equipe','EquipeJogo','User'); 
     
     public $paginate = array(
         'limit' => 15,
@@ -17,6 +17,9 @@ class ApostasController extends AppController {
     );           
     
     public function index() {
+        $equipes =  $this->Equipe->find('list', array('fields' => array ('Equipe.nome')));
+        $this->set('equipes',$equipes); 
+
         $jogos = $this->Jogo->find('all');
         $apostas = $this->Aposta->find('all',array('recursive' => 2));
         $this->set('apostas',$apostas);
@@ -26,6 +29,7 @@ class ApostasController extends AppController {
         if($userlogged){
             $user = $this->User->findByUsername($userlogged);
             $user_id = $user["User"]["id"];
+            $this->User->id = $user_id;
 
             foreach ($jogos as $jogo) {
                 $jogo_id = $jogo["Jogo"]["id"];
@@ -61,12 +65,28 @@ class ApostasController extends AppController {
             }
             //pr($apostaObj);exit;
             $this->Aposta->save($apostaObj);
+            $this->Session->setFlash('Aposta registrada. Boa sorte!');
             $this->redirect(array('controller' => 'Apostas','action' => 'index'));
 
         }else{
             $this->Session->setFlash('Você precisa estar logado para fazer uma aposta.');
         }
-        
+    }
+
+    public function salvar_aposta_finalistas(){
+        $userlogged = $this->Session->read('Auth.User.username'); 
+        $userObj = $this->data;
+        if($userlogged){
+            $user = $this->User->findByUsername($userlogged);
+            $user_id = $user["User"]["id"];
+
+            $this->User->id = $user_id;
+            $this->User->save($userObj);
+            $this->Session->setFlash('Aposta registrada. Boa sorte!');
+        }else{
+            $this->Session->setFlash('Você precisa estar logado para fazer uma aposta.');
+        }
+        $this->redirect(array('controller' => 'Apostas','action' => 'index'));
     }
 }
 
