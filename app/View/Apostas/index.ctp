@@ -1,10 +1,20 @@
 <html>
 <head><title></title>
 </head>
-<body>	
-	Lista as jogos para aposta.<br>
+<body>
+<?php echo $this->Session->flash(); ?><br>
+	<h1>Aposta de campeão e vice-campeão.</h1>
+	<form id ="ApostaCampeaoForm" action="<?php echo $this->webroot.'apostas/salvar_aposta_finalistas'?>" method="POST">
+	<?php echo $this->Form->input('User.idEquipeCampea',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe campeã', 'empty' => '-- Selecione uma seleção --')); ?>
+	<?php echo $this->Form->input('User.idEquipeViceCampea',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe vice-campeã', 'empty' => '-- Selecione uma seleção --')); ?>
+	    
+	    <div class="bt-right">
+            <input type="submit" value="Cadastrar" class="bt bt-v"/>
+	    </div>
 
-	<?php echo $this->Session->flash(); ?>
+	</form>
+
+	Lista as jogos para aposta.<br>
 	    <table class="table table-bordered table-striped table-hover">
 	        <tr>
 	            <th>Data</th>
