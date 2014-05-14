@@ -4,7 +4,7 @@
 
 <p>Regras : As regras são simples e se baseiam numa somatória de pontos, onde o maior pontuador é o vencedor e o vencendor recebe o prêmio em dinheiro.</p>
 
-<p>Será recolhido um valor fixo de R$22,00 dos participantes pagos pelo próprio site. Após a confirmação do pagamento o administrador do site irá liberar o usuário para as apostas.
+<p>Será recolhido um valor fixo de R$22,00 dos participantes pagos online, através do próprio site. Após a confirmação do pagamento o administrador do site irá liberar o usuário para as apostas.
 Os participantes apostarão nos jogos cadastrados. A cada jogo realizado os participantes vão somando pontos de acordo com os critérios previamente definidos. Os critérios são :
 
 <ol>
@@ -14,7 +14,7 @@ Os participantes apostarão nos jogos cadastrados. A cada jogo realizado os part
 		<b>Exemplo:</b> <br />
 		<ol>
 			<li>
-			Aposta : Time A 3 x 1 Time B
+			Aposta : Time A 3 x 1 Time B<br />
 			Resultado : Time A 3 x 1 Time B -> 3 pontos.
 			</li>
 		</ol>
@@ -22,22 +22,29 @@ Os participantes apostarão nos jogos cadastrados. A cada jogo realizado os part
 	<li>
 		<b>Acertou o vencedor ou empate : 1 ponto.</b>
 		<br />
-	<b>Exemplos:</b> <br />
+		<b>Exemplos:</b> <br />
 
-	<ol>
-		<li>
-			Aposta : Time A 1 x 1 Time B<br />
-	Resultado : Time A 3 x 3 Time B -> 1 ponto.
-		</li>
-		<li>
-			Aposta : Time A 2 x 0 Time B<br />
-	Resultado : Time A 4 x 1 Time B -> 1 ponto. 
-		</li>
-		<li>
-			Aposta : Time A 0 x 3 Time B<br />
-	Resultado : Time A 1 x 0 Time B -> 0 pontos.
-		</li>
-	</ol>		 
+		<ol>
+			<li>
+				Aposta : Time A 1 x 1 Time B<br />
+		Resultado : Time A 3 x 3 Time B -> 1 ponto.
+			</li>
+			<li>
+				Aposta : Time A 2 x 0 Time B<br />
+		Resultado : Time A 4 x 1 Time B -> 1 ponto. 
+			</li>
+		</ol>
+	</li>
+	<li>
+			<b>Nenhum acerto : 0 pontos.</b>
+			<br />
+			<b>Exemplo:</b> <br />
+			<ol>
+				<li>
+					Aposta : Time A 0 x 3 Time B<br />
+			Resultado : Time A 1 x 0 Time B -> 0 pontos.
+				</li>
+		</ol>		 
 	</li>
 </ol>
 </p>
