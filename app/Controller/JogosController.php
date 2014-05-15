@@ -9,13 +9,13 @@ class JogosController extends AppController {
     var $uses = array('Jogo','Equipe','EquipeJogo'); 
 
     public function index() {
-        $jogos = $this->Jogo->find('all', array('order'=>'Jogo.grupo'));        
+        $jogos = $this->Jogo->find('all', array('order'=>'Jogo.grupo','Jogo.dataJogo'));        
 
         $this->set('jogos', $jogos);  
     }
 
     public function cadastrar(){
-        $equipes =  $this->Equipe->find('list', array('fields' => array ('Equipe.nome')));
+        $equipes =  $this->Equipe->find('list', array('fields' => array ('Equipe.nome'),'order'=>('Equipe.nome')));
         $this->set('equipes',$equipes); 
 
          if (!empty($this->data)) {

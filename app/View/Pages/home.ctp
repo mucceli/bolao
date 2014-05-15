@@ -13,19 +13,27 @@
 	
 	<br>
 	<h1>Programação</h1>
-	Fazer validacao dos campos vazios<br>
-	Ranking com as posições e resultado da última rodada.<br>
+	Validar se aposta pode ser feita, atraves da data limite!!<br>
+	Atualizar ranking<br>
+	Validar se usuario ja existe<br>	
+	Editar equipe campeão e vice-campeã.<br>
+	Resultado da última rodada.<br><br>
+
+	Validar confirmação da senha<br>	
+	Fazer validacao dos campos vazios<br>	
 	Tela para validar usuario pagou<br>
-	Ticket<br>
+	Ticket confirmação novo usuário<br>
 	Esqueci minha senha<br>
-	Validar se usuario ja existe<br>
-	Tela para registrar o resultado dos jogos<br>
-	Mudar UTC default
-	<h1>Layout</h1>
-	Mensagem de sucesso/erro usuario<br>
+	Cadastrar jogos - MASCARA na insercao da data
+	
+	
+	<h1>Layout</h1>	
 	Tela das regras<br>
 	Layout Ranking<br>
 	Dedinho no mouse para botões<br>
+	Fazer rodapé
+	Pagina principal
+	<h1>Fazer testes</h1>
 	
 </body>
 </html>
