@@ -83,11 +83,11 @@ table.table tbody tr:nth-child(odd){
 
 
 .jg-grupos {overflow: hidden; font-size: 0; text-align: center}
-    .jg-grupo{display:inline-block; border:solid 1px #CCC; width: 380px; text-align: center; border-radius: 3px; padding: 0 15px 15px; margin:0 15px 15px 0; vertical-align: top}
+    .jg-grupo{display:inline-block; border:solid 1px #CCC; width: 480px; text-align: center; border-radius: 3px; padding: 0 15px 15px; margin:0 15px 15px 0; vertical-align: top}
     .jg-grupo h2{font:20px/40px 'open_sanssemibold'; color:#CCC; text-align: left; text-transform: capitalize;}
     .jg{font-size: 0; text-align: center; color:#333; margin-bottom: 10px; display: block;}
     .jg .inp-text{width: 25px; height: 25px; margin: 0 5px 0 }
-    .jg-time span{text-transform: uppercase; width: 100px; text-align: right;}
+    .jg-time span{text-transform: uppercase; width: 145px; text-align: right;vertical-align: middle;}
     .jg-time-fix span{text-align: left;}
     .jg span{display: inline-block;font:13px/25px 'open_sanssemibold';}
     .jg-time i{background-image: url(../img/bandeiras.png);display: inline-block; width: 25px; height: 25px; vertical-align: middle; margin:0 5px;}

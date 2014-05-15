@@ -10,7 +10,6 @@ class JogosController extends AppController {
 
     public function index() {
         $jogos = $this->Jogo->find('all', array('order'=>'Jogo.grupo','Jogo.dataJogo'));        
-
         $this->set('jogos', $jogos);  
     }
 
@@ -48,13 +47,12 @@ class JogosController extends AppController {
     public function salvar_resultado() {
         if (!empty($this->data)) {
             $jogo = $this->data;
-            //pr($this->data);exit;
+            //pr($jogo);exit;
             $this->Jogo->id = $jogo["Jogo"]["id"];
-            // se os dados do formulário puderam ser validados e salvos...
             if ($this->Jogo->save($jogo)) {
 
-                $this->Session->setFlash("Jogo salvo com sucesso!", "default", array('class' => ''));
-                $this->redirect(array('controller' => 'Jogos','action' => 'index'));
+                $this->Session->setFlash("Resultado salvo com sucesso!", "default", array('class' => ''));
+                $this->redirect(array('controller' => 'Jogos','action' => 'registrar_resultado'));
             }
         }
     }
