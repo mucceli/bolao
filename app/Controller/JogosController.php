@@ -39,8 +39,7 @@ class JogosController extends AppController {
     }
 
     public function registrar_resultado() {
-        $jogos = $this->paginate('Jogo');        
-        //pr($jogos);exit;
+        $jogos = $this->Jogo->find('all', array('order'=>'Jogo.grupo','Jogo.dataJogo'));
         $this->set('jogos', $jogos);  
     }
 
