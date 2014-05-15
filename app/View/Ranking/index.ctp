@@ -1,11 +1,10 @@
-<html>
-<head><title></title>
-</head>
-<body>
-Ranking
-<br>
-<br>
+<h1>Ranking</h1>
 <?php echo $this->Session->flash(); ?>
+	    
+
+
+
+
 	    <table class="table table-bordered table-striped table-hover">
 	        <tr>
 	            <th>Colocação</th>
