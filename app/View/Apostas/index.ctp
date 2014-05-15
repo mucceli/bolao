@@ -1,7 +1,10 @@
-<html>
-<head><title></title>
-</head>
-<body>
+<?php 
+function clean($string) {
+   $string = str_replace(' ', '', $string);
+   $string= preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $string));
+   return "bd-".strtolower($string); // Removes special chars.
+}
+?>
 <?php echo $this->Session->flash(); ?><br>
 	<h1>Aposta de campeão e vice-campeão.</h1>
 	<form id ="ApostaCampeaoForm" action="<?php echo $this->webroot.'apostas/salvar_aposta_finalistas'?>" method="POST">
@@ -14,39 +17,52 @@
 
 	</form>
 
-	Lista as jogos para aposta.<br>
-	    <table class="table table-bordered table-striped table-hover">
-	        <tr>
-	            <th>Data</th>
-	            <th>Aposta</th>
-	            <th></th>
-	        </tr>
-	        <?php
-	        foreach ($apostas as $aposta):
-	            ?>
-	            <tr> 
-	            <form action="<?php echo $this->webroot.'apostas/apostar'?>" method="POST">
-	            	<td>
-	            	<?php echo date("d/m/Y", strtotime($aposta["Jogo"]["dataJogo"])); ?>
-	            	<!--$jogo["Jogo"]["id"]-->
-	            	</td>
-	            	<td><?php echo $aposta["Jogo"]["Equipe"][0]["nome"] ?>
-	            	<input name="data[Aposta][jogo_id]" class="inp-text" maxlength="255" type="hidden" value="<?php echo $aposta["Jogo"]["id"] ?>">
-	            	<input name="data[Aposta][golsTime1]" class="inp-text" maxlength="255" type="text" 
-	            	value="<?php echo $aposta["Aposta"]["golsTime1"]?>">
-	            	 x 
-	            	<input name="data[Aposta][golsTime2]" class="inp-text" maxlength="255" type="text"
-	            	value="<?php echo $aposta["Aposta"]["golsTime2"]?>"> <?php echo $aposta["Jogo"]["Equipe"][1]["nome"] ?></td>             
-	                <td style="width: 35px;">
-	                <input type="submit" class="bt bt-v btapostar" value="$ Apostar"/>
-	                </td>
-	             </form>
-	            </tr>
 
-	            <?php
-	        endforeach;
-	        ?>
-	    </table>
+	<!-- Iniciando listagem dos apostas da fase de grupos -->	
+<div class="jg-grupos">
+	<div class="jg-grupo">
+		<h2>Grupo A</h2>
+		<?php 
+			$grupo="A";
+			
+			foreach ($apostas as $aposta):
+				//Se o jogo não é do mesmo grupomuda a listagem
+				if($aposta["Jogo"]["grupo"]!=$grupo):
+					$grupo=$aposta['Jogo']['grupo'];
+					?>
+					</div>
+
+						<?php 
+						echo strlen($grupo);
+							//Senao for fase de grupos
+						if(strlen($grupo)>1):?>
+							</div>
+							<div class="jg-grupos">
+								<div class="jg-grupo">
+									<h2><?php echo $grupo;?></h2>
+						<?php else: ?>
+							<div class="jg-grupo">
+							<h2>Grupo <?php echo $grupo?></h2>
+						<?php endif;?>
+					
+
+					
+				<?php endif;?>
+
+				<form class="jg" action="<?php echo $this->webroot.'apostas/apostar'?>" method="POST">
+					<input name="data[Aposta][jogo_id]" class="inp-text" maxlength="255" type="hidden" value="<?php echo $aposta["Jogo"]["id"] ?>">
+					<span class="jg-time"><span><?php echo $aposta["Jogo"]["Equipe"][0]["nome"] ?></span><i class="<?php echo clean($aposta["Jogo"]["Equipe"][0]["nome"])?>"></i></span>
+					
+						<input type="text" name="data[Aposta][golsTime1]" class="inp-text" value="<?php echo $aposta["Aposta"]["golsTime1"] ?>" />
+						<span>x</span>
+						<input type="text" name="data[Aposta][golsTime2]" class="inp-text" value="<?php echo $aposta["Aposta"]["golsTime2"] ?>" />
+					<span class="jg-time jg-time-fix"> <i class="<?php echo clean($aposta["Jogo"]["Equipe"][1]["nome"])?>"></i><span><?php echo $aposta["Jogo"]["Equipe"][1]["nome"] ?></span></span>
+
+					<span class="jg-data"><?php echo date("d/m/Y", strtotime($aposta["Jogo"]["dataJogo"])); ?></span>
+					<input type="submit" class="bt bt-v btapostar" value="$ Apostar"/>
+				</form>
+	<?php endforeach ?>
+
 </body>
 <script type="text/javascript">
 	 $('.btapostar').click(function(){
@@ -70,4 +86,3 @@
                 });
               });
 </script>
-</html>

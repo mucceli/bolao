@@ -8,10 +8,9 @@ function clean($string) {
 ?>
 <h1>Lista de jogos</h1>
 	<?php echo $this->Session->flash(); ?>
-
 	<a href="<?php echo $this->Html->url('/jogos/cadastrar/', true);?>"> Cadastre um jogo</a>
 	<br /></br />
-	
+
 	<!-- Iniciando listagem dos jogos da fase de grupos -->	
 	<div class="jg-grupos">
 		<div class="jg-grupo">
