@@ -9,8 +9,8 @@ class JogosController extends AppController {
     var $uses = array('Jogo','Equipe','EquipeJogo'); 
 
     public function index() {
-        $jogos = $this->paginate('Jogo');        
-        //pr($jogos);exit;
+        $jogos = $this->Jogo->find('all', array('order'=>'Jogo.grupo'));        
+
         $this->set('jogos', $jogos);  
     }
 
