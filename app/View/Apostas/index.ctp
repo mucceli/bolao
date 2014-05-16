@@ -5,10 +5,11 @@ function clean($string) {
    return "bd-".strtolower($string); // Removes special chars.
 }
 ?>
+
 <?php echo $this->Session->flash(); ?><br>
 	<h1>Apostas</h1>
 	<form id ="ApostaCampeaoForm" action="<?php echo $this->webroot.'apostas/salvar_aposta_finalistas'?>" method="POST">
-	<?php echo $this->Form->input('User.idEquipeCampea',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe campeã', 'empty' => '-- Selecione uma seleção --')); ?>
+	<?php echo $this->Form->input('User.idEquipeCampea',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe campeã', 'empty' => '-- Selecione uma seleção --','class'=>'inp-text')); ?>
             <input type="submit" value="$ Apostar" class="bt bt-v btapostar"/>
 	</form>
 

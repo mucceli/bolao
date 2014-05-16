@@ -46,6 +46,16 @@ Os participantes apostarão nos jogos cadastrados. A cada jogo realizado os part
 				</li>
 		</ol>		 
 	</li>
+	<li>
+			<b>Ponto Extra : 18 pontos.</b>
+			<br />
+			<b>Exemplo:</b> <br />
+			<ol>
+				<li>
+					Se o usuário acertar a seleção <b>campeã</b> receberá pontuação extra de 18 pontos.
+				</li>
+		</ol>		 
+	</li>
 </ol>
 </p>
 

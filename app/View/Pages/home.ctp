@@ -2,23 +2,23 @@
 <head><title></title>
 </head>
 <body>
-
+<?php echo $this->Session->flash(); ?>
 	<br>
 	<h1>Programação</h1>	
-	Editar equipe campeão<br>
+	Equipe campeão<br>
+		Resultado do campeao<br>
+		Calcular os pontos do campeao<br><br>
+
 	Fazer validacao dos campos vazios<br>		
 	Ticket confirmação novo usuário<br>
 	Esqueci minha senha<br>
-	<br>
-	Cadastrar jogos - MASCARA na insercao da data<br>
-	Resultado da última rodada.<br>
+	<br>	
+	BUG DUPLICACAO APOSTAS
 		
-	<h1>Layout</h1>	
-	Tela das regras<br>
-	Layout Ranking - ok <br>
-	Icone BLOQUEAR E DESBLOQUEAR usuario - ok<br>
-	Icone se usuario ja existe<br>	
+	<h1>Layout</h1>		
 	Botão cadastre-se|login<br>	
+	Corrigir rodapé<br>
+	Table-Email<br>
 	Pagina principal<br><br>
 
 	<h1>Fazer testes</h1>

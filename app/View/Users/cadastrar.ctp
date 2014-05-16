@@ -6,7 +6,7 @@
 <?php echo $this->Form->input('User.password', array('label'=>false,'class' => 'inp-text userpassword', 'placeholder'=> 'Senha')); ?>
 <?php echo $this->Form->input('', array('label'=>false,'class' => 'inp-text password_confirm', 'placeholder'=> 'Confirmação de senha')); ?>
 <div class="bt-right">
-    <input type="reset" value="Limpar" class="bt bt-c"/>
+    <input type="reset" value="Limpar" class="bt bt-c bt-limpar" />
     <input type="submit" value="Cadastrar" class="bt bt-v"/>
 </div>
 
@@ -46,27 +46,35 @@
     });
 
      $('.valid_user').focusout(function(){
-                    var login = $('.valid_user').val();
-                    if(login==''){
-                        $('#flashMessage').remove();                   
-                        return;
-                    }
-                    $.ajax({
-                    dataType: "html",
-                    type: "POST",
-                    evalScripts: true,
-                    url: '<?php echo Router::url(array('controller'=>'users','action'=>'existe_usuario'));?>',
-                    data: "login="+login,
-                    success: function (data){                        
-                        if(data == 1){
-                            alert('Usuario valido');
-                               
-                        }else{
-                            alert('Usuario existe');
-                              
-                        }
-                     }
-                });
-              });
+            var login = $('.valid_user').val();
+            if(login==''){
+                $('#flashMessage').remove();                   
+                return;
+            }
+            $.ajax({
+            dataType: "html",
+            type: "POST",
+            evalScripts: true,
+            url: '<?php echo Router::url(array('controller'=>'users','action'=>'existe_usuario'));?>',
+            data: "login="+login,
+            success: function (data){                        
+                if(data == 1){
+                  $('#flashMessage').remove();
+                  $('.valid_user').addClass("valido");
+                }else{
+                  $('#flashMessage').remove();
+                  $('.valid_user').removeClass("valido");
+                  $('.valid_user').val('');
+                  $('<div id="flashMessage" class="message erro">Usuário já existe. Escolha outro.</div>').insertAfter('#h1');
+                }
+             }
+        });
+      });
+
+  $(".bt-limpar").click(function(){
+    $('#flashMessage').remove();
+    $('.valid_user').removeClass("valido");
+  });
+
 });
 </script>

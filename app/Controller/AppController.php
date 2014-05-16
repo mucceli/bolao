@@ -74,11 +74,11 @@ class AppController extends Controller {
             //TODO validar se esta vazio primeiro
             $theUser = $this->User->findByUsername($this->data['User']['username']);
             if(empty($theUser)){
-                $this->Session->setFlash('Usuario ou senha inválido, tente novamente.', "default", array('class' => 'alerta_erro'));
+                $this->Session->setFlash('Usuario ou senha inválido, tente novamente.',"default", array('class' => 'message erro'));
                 $this->redirect($this->Auth->redirect());
             }
-            if($theUser['User']['ative'] == false){
-                $this->Session->setFlash(__('Esse usuário ainda não está ativo. Verifique seu e-mail.'));
+            if($theUser['User']['ative'] == 0){
+                $this->Session->setFlash('Esse usuário ainda não está ativo. Verifique seu e-mail.',"default", array('class' => 'message erro'));
                 $this->redirect($this->Auth->redirect());
             }
         }
@@ -86,9 +86,9 @@ class AppController extends Controller {
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
                 $this->redirect($this->Auth->redirect());
-                $this->Session->setFlash(__(''));
+                $this->Session->setFlash('');
             } else {
-                $this->Session->setFlash('Usuario ou senha inválido, tente novamente.', "default", array('class' => 'alerta_erro'));
+                $this->Session->setFlash('Usuario ou senha inválido, tente novamente.', "default", array('class' => 'message erro'));
             }
         }
     }

@@ -24,8 +24,27 @@ class UsersController extends AppController {
                $this->Session->write('id_user_edit',$id);               
          }
     }
-    public function salvar_edicao($id){
+    public function salvar_edicao(){
+        $this->User->id = $this->data["User"]["id"];
+        $this->User->save($this->data);
+        $this->Session->setFlash("Usuário salvo.", "default");
+        $this->redirect(array('controller' => 'Users','action' => 'index'));
+    }
 
+    public function block_unblock(){
+        $this->User->id = $this->data["User"]["id"];
+        $ativo_desativo = $this->data["User"]["ative"];
+        $user = $this->data;
+        if($ativo_desativo == 0){
+            $user["User"]["ative"] = 1;      
+            $this->User->save($user);  
+            $this->Session->setFlash("Usuário Desbloqueado", "default");
+        }else{
+            $user["User"]["ative"] = 0;
+            $this->User->save($user);
+            $this->Session->setFlash("Usuário Bloqueado", "default");
+        }
+        
     }
 
     public function add(){

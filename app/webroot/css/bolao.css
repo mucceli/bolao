@@ -51,7 +51,7 @@ h1{font: 20px/1.3 'open_sanssemibold'; color:#00A558; margin-bottom: 15px}
 	label{display: block; color: #CCC; margin-bottom: 5px; font-size: 13px}
     select.inp-text{-webkit-appearance:none;; background: #FFF url(../img/bg-select.png) no-repeat center right}
     .inp-text.small{width: 94px}
-    .inp-text.valid{background: #FFF url(../img/bg-ok.png) no-repeat center right}
+    .inp-text.valido{background: #FFF url(../img/bg-ok.png) no-repeat center right}
     .inp-text.invalid{border:solid 1px #C00; position: relative;}
     .inp-text.invalid:before{content: 'Usuário já existente'; display: block; font:10px Tahoma, sans-serif; color:#c00; position: absolute; top: 30px; left: 0}
 
@@ -101,6 +101,7 @@ table.table tbody tr:nth-child(odd){
 }
 
     .btapostar{height: 25px;line-height: 25px; margin: 5px 0}
+    .btblock{height: 25px;line-height: 25px; margin: 5px 0}
 /* Bandeiras */
 .bd-brasil{background-position: -35px -210px}
 .bd-croacia{background-position: -70px -35px}
