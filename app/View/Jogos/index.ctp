@@ -8,7 +8,12 @@ function clean($string) {
 ?>
 <h1>Lista de jogos</h1>
 	<?php echo $this->Session->flash(); ?>
-	<a href="<?php echo $this->Html->url('/jogos/cadastrar/', true);?>"> Cadastre um jogo</a>
+	<?php if($usuariologado && $userAdmin){?>
+		<form action="<?php echo $this->webroot.'jogos/cadastrar'?>" method="POST">
+			<input type="submit" class="bt bt-v btapostar" value="Cadastre um jogo"/>
+		</form> 
+	<?php }?>
+	
 	<br /></br />
 
 	<!-- Iniciando listagem dos jogos da fase de grupos -->	
