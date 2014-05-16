@@ -44,7 +44,7 @@ class AppController extends Controller {
     );
 
     public function beforeFilter() {
-        $this->Auth->allow('index','display','cadastrar','add');
+        $this->Auth->allow('index','display','cadastrar','add','existe_usuario');
         $userlogged = $this->Session->read('Auth.User.username'); 
         $this->set('usuariologado', $userlogged);
         

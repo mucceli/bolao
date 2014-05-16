@@ -6,19 +6,25 @@
  */
 class UsersController extends AppController {
         
-    public $paginate = array(
-        'limit' => 15,
-        'order' => array(
-            'Categoria.nome' => 'asc'
-        )
-    );           
-    
     public function index() {
-        $usuarios = $this->paginate('User');
+        $usuarios = $this->User->find('all');
         $this->set('usuarios', $usuarios);  
     }
 
     public function cadastrar(){
+
+    }
+
+    public function editar_usuario($id){
+        if (empty($id)){
+               $this->Session->setFlash("Usuário inválido. Não foi encontrado o usuário!", "default", array('class' => 'erro'));
+         }else{
+               $this->request->data = $this->User->findById($id);
+               $this->Session->delete('id_user_edit');  
+               $this->Session->write('id_user_edit',$id);               
+         }
+    }
+    public function salvar_edicao($id){
 
     }
 
@@ -34,6 +40,18 @@ class UsersController extends AppController {
             } else {
                 $this->Session->setFlash(__('Ocorreu um erro ao tentar salvar o usuário. Entre em contato com o administrador.'));
             }
+        }
+    }
+
+    public function existe_usuario(){  
+        $param = $this->data["login"];
+        $this->autoRender = false;
+        $this->layout = 'ajax';
+        $user = $this->User->find('all',array('conditions'=>array('User.username'=>$param)));
+        if(empty($user)){            
+            return true;
+        }else{            
+            return false;
         }
     }
    
