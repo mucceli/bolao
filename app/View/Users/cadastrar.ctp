@@ -28,21 +28,28 @@
     });
 
     $(".password_confirm").focusout(function(){
-                $('#flashMessage').remove();
-                  $pwd = $('.userpassword').val();
-                  $pwd_confirm = $(".password_confirm").val();
-                  if($pwd != $pwd_confirm){
-                     $('.password_confirm').val('');
-                     $('.userpassword').val('');
-                     $('<div id="flashMessage" class="message erro">Senhas não conferem.</div>').insertAfter('#h1');
-                  }else{
-                        if($('.userpassword').val().length < 6){
-                            $('.password_confirm').val('');
-                            $('.userpassword').val('');
-                            $('<div id="flashMessage" class="message erro">Sua senha deve ter pelo menos 6 dígitos.</div>').insertAfter('#h1');
-                            return false;
-                        }
-                  }
+        $('#flashMessage').remove();
+          $pwd = $('.userpassword').val();
+          $pwd_confirm = $(".password_confirm").val();
+          if($pwd != $pwd_confirm){
+             $('.password_confirm').val('');
+             $('.userpassword').val('');
+             $('.userpassword').addClass("invalid");
+             $('.password_confirm').addClass("invalid");
+             $('<div id="flashMessage" class="message erro">Senhas não conferem.</div>').insertAfter('#h1');
+             return false;
+          }else{
+                if($('.userpassword').val().length < 6){
+                    $('.password_confirm').val('');
+                    $('.userpassword').val('');
+                    $('.userpassword').addClass("invalid");
+                    $('.password_confirm').addClass("invalid");
+                    $('<div id="flashMessage" class="message erro">Sua senha deve ter pelo menos 6 dígitos.</div>').insertAfter('#h1');
+                    return false;
+                }
+          }
+          $('.userpassword').removeClass("invalid");
+          $('.password_confirm').removeClass("invalid");
     });
 
      $('.valid_user').focusout(function(){
@@ -61,9 +68,11 @@
                 if(data == 1){
                   $('#flashMessage').remove();
                   $('.valid_user').addClass("valido");
+                  $('.valid_user').removeClass("invalid");
                 }else{
                   $('#flashMessage').remove();
                   $('.valid_user').removeClass("valido");
+                  $('.valid_user').addClass("invalid");
                   $('.valid_user').val('');
                   $('<div id="flashMessage" class="message erro">Usuário já existe. Escolha outro.</div>').insertAfter('#h1');
                 }
@@ -74,6 +83,8 @@
   $(".bt-limpar").click(function(){
     $('#flashMessage').remove();
     $('.valid_user').removeClass("valido");
+    $('.userpassword').removeClass("invalid");
+    $('.password_confirm').removeClass("invalid");
   });
 
 });
