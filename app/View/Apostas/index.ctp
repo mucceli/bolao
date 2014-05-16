@@ -43,7 +43,7 @@ function clean($string) {
 				<?php endif;?>
 
 				<form class="jg" action="<?php echo $this->webroot.'apostas/apostar'?>" method="POST">
-					<input name="data[Aposta][jogo_id]" class="inp-text" maxlength="255" type="hidden" value="<?php echo $aposta["Jogo"]["id"] ?>">
+					<input name="data[Aposta][id]" class="inp-text" maxlength="255" type="hidden" value="<?php echo $aposta["Aposta"]["id"] ?>">
 					<span class="jg-time"><span><?php echo $aposta["Jogo"]["Equipe"][0]["nome"] ?></span><i class="<?php echo clean($aposta["Jogo"]["Equipe"][0]["nome"])?>"></i></span>
 					
 						<input type="text" name="data[Aposta][golsTime1]" class="inp-text" value="<?php echo $aposta["Aposta"]["golsTime1"] ?>" />

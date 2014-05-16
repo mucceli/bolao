@@ -46,17 +46,8 @@ class ApostasController extends AppController {
             $user_id = $user["User"]["id"];
             $apostaObj["Aposta"]["user_id"] = $user_id;
 
-            
-            $jogo_id = $apostaObj["Aposta"]["jogo_id"];
+            $this->Aposta->id = $apostaObj["Aposta"]["id"];
 
-            //Verifica se aposta já existe.
-           // $aposta_id = $this->Aposta->query("SELECT id FROM apostas");                 
-
-            //Se existir um registro sera um UPDATE.
-            if(!empty($aposta_id)){
-                $this->Aposta->id = $aposta_id;
-            }
-            //pr($apostaObj);exit;
             $this->Aposta->save($apostaObj);
             $this->Session->setFlash('Aposta registrada. Boa sorte!');
             $this->redirect(array('controller' => 'Apostas','action' => 'index'));

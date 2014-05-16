@@ -3,17 +3,8 @@
 </head>
 <body>
 
-	<h1>Exemplo de titulo</h1>
-
-
-	<input type="text" placeholder="Digite um texto" class="inp-text" />
-	<div>
-		<input type="submit" class="bt bt-v" value="Salvar"/>
-	</div>
-	
 	<br>
-	<h1>Programação</h1>
-	Atualizar ranking<br>
+	<h1>Programação</h1>	
 	Editar equipe campeão<br>
 	<br>
 
@@ -31,7 +22,7 @@
 	Dedinho no mouse para botões<br>
 	Fazer rodapé<br>	
 	Pagina principal<br><br>
-	
+
 	<h1>Fazer testes</h1>
 	
 </body>
