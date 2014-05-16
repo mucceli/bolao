@@ -6,15 +6,10 @@ function clean($string) {
 }
 ?>
 <?php echo $this->Session->flash(); ?><br>
-	<h1>Aposta de campeão e vice-campeão.</h1>
+	<h1>Apostas</h1>
 	<form id ="ApostaCampeaoForm" action="<?php echo $this->webroot.'apostas/salvar_aposta_finalistas'?>" method="POST">
 	<?php echo $this->Form->input('User.idEquipeCampea',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe campeã', 'empty' => '-- Selecione uma seleção --')); ?>
-	<?php echo $this->Form->input('User.idEquipeViceCampea',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe vice-campeã', 'empty' => '-- Selecione uma seleção --')); ?>
-	    
-	    <div class="bt-right">
-            <input type="submit" value="Cadastrar" class="bt bt-v"/>
-	    </div>
-
+            <input type="submit" value="$ Apostar" class="bt bt-v btapostar"/>
 	</form>
 
 
@@ -45,8 +40,6 @@ function clean($string) {
 							<h2>Grupo <?php echo $grupo?></h2>
 						<?php endif;?>
 					
-
-					
 				<?php endif;?>
 
 				<form class="jg" action="<?php echo $this->webroot.'apostas/apostar'?>" method="POST">
@@ -59,7 +52,12 @@ function clean($string) {
 					<span class="jg-time jg-time-fix"> <i class="<?php echo clean($aposta["Jogo"]["Equipe"][1]["nome"])?>"></i><span><?php echo $aposta["Jogo"]["Equipe"][1]["nome"] ?></span></span>
 
 					<span class="jg-data"><?php echo date("d/m/Y", strtotime($aposta["Jogo"]["dataJogo"])); ?></span>
-					<input type="submit" class="bt bt-v btapostar" value="$ Apostar"/>
+					
+					<span class="jg-data"><?php
+						if(strtotime(date("Y-m-d")) < strtotime($aposta["Jogo"]["dataJogo"])) { ?>
+							<input type="submit" class="bt bt-v btapostar" value="$ Apostar"/>
+						<?php }							
+					?></span>
 				</form>
 	<?php endforeach ?>
 

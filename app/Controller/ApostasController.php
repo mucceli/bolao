@@ -1,20 +1,13 @@
 <?php
 /**
- * Description of CategoriasController
+ * Description of ApostasController
  *
  * @author mucceli
  */
 App::import('Aposta');
 class ApostasController extends AppController {
         
-     var $uses = array('Aposta','Jogo','Equipe','EquipeJogo','User'); 
-    
-    public $paginate = array(
-        'limit' => 15,
-        'order' => array(
-            'Jogo.dataJogo' => 'asc'
-        )
-    );           
+     var $uses = array('Aposta','Jogo','Equipe','EquipeJogo','User');
     
     public function index() {
         $equipes =  $this->Equipe->find('list', array('fields' => array ('Equipe.nome')));
