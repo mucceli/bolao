@@ -15,11 +15,9 @@
 		
 	<h1>Layout</h1>	
 	Tela das regras<br>
-	Layout Ranking<br>
-	Icone BLOQUEAR E DESBLOQUEAR usuario<br>
+	Layout Ranking - ok <br>
+	Icone BLOQUEAR E DESBLOQUEAR usuario - ok<br>
 	Icone se usuario ja existe<br>	
-	Dedinho no mouse para botões<br>
-	Fazer rodapé<br>
 	Botão cadastre-se|login<br>	
 	Pagina principal<br><br>
 
