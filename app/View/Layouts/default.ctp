@@ -59,5 +59,8 @@
 		<div id="content" class="g-980">
 			<?php echo $this->fetch('content'); ?>
 		</div>
+		<footer>
+			<div class="g-980">Bolão entre amigos para a Copa de 2014</div>
+		</footer>
 </body>
 </html>

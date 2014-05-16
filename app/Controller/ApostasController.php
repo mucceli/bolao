@@ -14,7 +14,7 @@ class ApostasController extends AppController {
         $this->set('equipes',$equipes); 
 
         $jogos = $this->Jogo->find('all');
-        $apostas = $this->Aposta->find('all',array('recursive' => 2));
+        $apostas = $this->Aposta->find('all',array('recursive' => 2, 'order'=>'Jogo.grupo, Jogo.dataJogo'));
         $this->set('apostas',$apostas);
 
         //Verifica se já existe objeto aposta correspondente ao objeto jogo.
