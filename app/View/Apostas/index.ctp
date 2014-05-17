@@ -1,18 +1,22 @@
 <?php 
 function clean($string) {
    $string = str_replace(' ', '', $string);
-   $string= preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $string));
+   $string = preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $string));
    return "bd-".strtolower($string); // Removes special chars.
 }
 ?>
 
 <?php echo $this->Session->flash(); ?><br>
 	<h1>Apostas</h1>
-	<form id ="ApostaCampeaoForm" action="<?php echo $this->webroot.'apostas/salvar_aposta_finalistas'?>" method="POST">
-	<?php echo $this->Form->input('User.idEquipeCampea',array('type'=>'select','options'=>$equipes, 'label'=>'Equipe campeã', 'empty' => '-- Selecione uma seleção --','class'=>'inp-text')); ?>
-            <input type="submit" value="$ Apostar" class="bt bt-v btapostar"/>
-	</form>
+	<?php if(!empty($user["User"]["equipe_id"])){?>
+		Você apostou que o <?php echo $user["Equipe"]["nome"]?> será o campeão. Boa Sorte!
+		<?php if(strtotime(date("Y-m-d")) < strtotime("2014-06-12")) { ?>
+			<?php echo $this->Html->link('Mudei de ideia','aposta_campeao',array('class' => 'button'));?>
+		<?php }	?>	
 
+	<?php }else {?>
+		Você ainda não apostou quem será o campeão. <?php echo $this->Html->link('Aposte aqui','aposta_campeao',array('class' => 'button'));?>
+	<?php }?>
 
 	<!-- Iniciando listagem dos apostas da fase de grupos -->	
 <div class="jg-grupos">
@@ -63,25 +67,30 @@ function clean($string) {
 	<?php endforeach ?>
 
 </body>
+<?php echo $this->Html->script(array('jquery.min')); ?>
 <script type="text/javascript">
+ $(document).ready(function(){
 	 $('.btapostar').click(function(){
-                    var login = $('.valid_user').val();
-                    if(login==''){
-                        $('#retornoMensagemLoginSucesso').remove();                       
-                    }
-                    $.ajax({
-                    dataType: "html",
-                    type: "POST",
-                    evalScripts: true,
-                    url: '<?php echo Router::url(array('controller'=>'apostas','action'=>'apostar'));?>',
-                    data: "login="+login,
-                    success: function (data){                        
-                        if(data == 1){
-                                $("#retornoMensagemLoginSucesso").fadeOut(25000);
-                        }else{
-                                $("#check_user_icon_invalid").fadeOut(25000);
-                        }
-                     }
-                });
-              });
+            var login = $('.valid_user').val();
+            if(login==''){
+                $('#retornoMensagemLoginSucesso').remove();                       
+            }
+            $.ajax({
+            dataType: "html",
+            type: "POST",
+            evalScripts: true,
+            url: '<?php echo Router::url(array('controller'=>'apostas','action'=>'apostar'));?>',
+            data: "login="+login,
+            success: function (data){                        
+                
+             }
+        });
+    });
+
+	 $("#btApostaCampeao").click(function(){
+	    if($('.comboApostaCampeao').val()== ''){
+	    	return false;
+	    }
+	  });
+  });
 </script>
