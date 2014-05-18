@@ -51,3 +51,5 @@ function clean($string) {
 					</span>
 					 </form>
 		<?php endforeach ?>
+</div>
+</div>

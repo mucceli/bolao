@@ -61,8 +61,8 @@ function clean($string) {
 					?></span>
 				</form>
 	<?php endforeach ?>
-
-</body>
+</div>
+</div>
 <script type="text/javascript">
 	 $('.btapostar').click(function(){
                     var login = $('.valid_user').val();

@@ -62,6 +62,8 @@ function clean($string) {
 						<span class="jg-data"><?php echo date("d/m/Y", strtotime($jogo["Jogo"]["dataJogo"])); ?></span>
 					</span>
 		<?php endforeach ?>
+	</div>
+</div>
 
 	    
 

@@ -18,11 +18,11 @@
 			<div class="header-bar">
 				<div class="g-980">
 				<?php if($usuariologado){?>
-						Olá, <?php  echo $usuariologado; ?>  | <a href="<?php echo $this->webroot.'users/logout' ?>">Logout
+						Olá, <?php  echo $usuariologado; ?>  | <a href="<?php echo $this->webroot.'users/logout' ?>" class="bt-login">Logout
                        </a> 
 					<?php }else {?>
 						 <a href="<?php echo $this->webroot.'users/cadastrar' ?>">Cadastre-se</a> | 
-						 <a href="<?php echo $this->webroot.'users/login' ?>">Entrar</a>
+						 <a href="<?php echo $this->webroot.'users/login' ?>" class="bt-login">Entrar</a>
 					<?php }?>
 				</div>
 			</div>
@@ -62,5 +62,6 @@
 		<footer>
 			<div class="g-980">Bolão entre amigos para a Copa de 2014</div>
 		</footer>
+	</div>
 </body>
 </html>
