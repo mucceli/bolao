@@ -65,6 +65,8 @@ function clean($string) {
 					?></span>
 				</form>
 	<?php endforeach ?>
+</div>
+</div>
 
 </body>
 <?php echo $this->Html->script(array('jquery.min')); ?>
