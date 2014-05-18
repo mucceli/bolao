@@ -10,9 +10,6 @@ class ApostasController extends AppController {
      var $uses = array('Aposta','Jogo','Equipe','EquipeJogo','User');
     
     public function index() {
-        $equipes =  $this->Equipe->find('list', array('fields' => array ('Equipe.nome')));
-        $this->set('equipes',$equipes); 
-
         $jogos = $this->Jogo->find('all');
         $apostas = $this->Aposta->find('all',array('recursive' => 2, 'order'=>'Jogo.grupo, Jogo.dataJogo'));
         $this->set('apostas',$apostas);
@@ -21,6 +18,7 @@ class ApostasController extends AppController {
         $userlogged = $this->Session->read('Auth.User.username'); 
         if($userlogged){
             $user = $this->User->findByUsername($userlogged);
+            $this->set('user',$user);
             $user_id = $user["User"]["id"];
             $this->User->id = $user_id;
 
@@ -57,15 +55,26 @@ class ApostasController extends AppController {
         }
     }
 
-    public function salvar_aposta_finalistas(){
+    public function aposta_campeao(){
+        $equipes =  $this->Equipe->find('list', array('fields' => array ('Equipe.nome')));
+        $this->set('equipes',$equipes); 
+
         $userlogged = $this->Session->read('Auth.User.username'); 
-        $userObj = $this->data;
         if($userlogged){
             $user = $this->User->findByUsername($userlogged);
-            $user_id = $user["User"]["id"];
+            $this->request->data = $user;
+        }
+    }
 
-            $this->User->id = $user_id;
-            $this->User->save($userObj);
+    public function salvar_aposta_campeao(){
+        $userlogged = $this->Session->read('Auth.User.username'); 
+        $equipe_id = $this->data["User"]["equipe_id"];
+        if($userlogged){
+            $user = $this->User->findByUsername($userlogged);
+            $user["User"]["equipe_id"] = $equipe_id;
+
+            $this->User->id = $user["User"]["id"];
+            $this->User->save($user);
             $this->Session->setFlash('Aposta registrada. Boa sorte!');
         }else{
             $this->Session->setFlash('Você precisa estar logado para fazer uma aposta.');

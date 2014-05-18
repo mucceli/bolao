@@ -8,6 +8,9 @@ function clean($string) {
 ?>
 <h1>Registra resultado</h1>
 	<?php echo $this->Session->flash(); ?>
+
+	 <?php echo $this->Html->link('Registre o campeão','resultado_campeao',array('class' => 'button'));?>
+
 	<!-- Iniciando listagem dos jogos da fase de grupos -->	
 	<div class="jg-grupos">
 		<div class="jg-grupo">

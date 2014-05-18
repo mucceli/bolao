@@ -24,6 +24,9 @@ class User extends AppModel {
         )
     );
 
+    var $belongsTo = array( 'Equipe' =>array(
+            'foreignKey'=>'equipe_id'),);
+
     /**
      * Hash password
      * @param type $options
