@@ -46,7 +46,7 @@ function clean($string) {
 						<!-- Se tiver resultado cadastrado -->
 						<input type="text" name="data[Jogo][golsTime1]" class="inp-text" value="<?php echo $jogo["Jogo"]["golsTime1"] ?>" />
 							<span>x</span>
-							<input type="text" name="data[Jogo][golsTime2]" class="inp-text" value="<?php echo $jogo["Jogo"]["golsTime1"] ?>" />
+							<input type="text" name="data[Jogo][golsTime2]" class="inp-text" value="<?php echo $jogo["Jogo"]["golsTime2"] ?>" />
 						<span class="jg-time jg-time-fix"> <i class="<?php echo clean($jogo["Equipe"][1]["nome"])?>"></i><span><?php echo $jogo["Equipe"][1]["nome"] ?></span></span>
 
 						<span class="jg-data"><?php echo date("d/m/Y", strtotime($jogo["Jogo"]["dataJogo"])); ?></span>

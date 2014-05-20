@@ -72,23 +72,6 @@ function clean($string) {
 <?php echo $this->Html->script(array('jquery.min')); ?>
 <script type="text/javascript">
  $(document).ready(function(){
-	 $('.btapostar').click(function(){
-            var login = $('.valid_user').val();
-            if(login==''){
-                $('#retornoMensagemLoginSucesso').remove();                       
-            }
-            $.ajax({
-            dataType: "html",
-            type: "POST",
-            evalScripts: true,
-            url: '<?php echo Router::url(array('controller'=>'apostas','action'=>'apostar'));?>',
-            data: "login="+login,
-            success: function (data){                        
-                
-             }
-        });
-    });
-
 	 $("#btApostaCampeao").click(function(){
 	    if($('.comboApostaCampeao').val()== ''){
 	    	return false;
