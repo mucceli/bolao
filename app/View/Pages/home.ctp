@@ -5,7 +5,6 @@
 <?php echo $this->Session->flash(); ?>
 	<br>
 	<h1>Programação</h1>		
-	Calcular os pontos do campeao<br>
 	Fazer validacao dos campos vazios<br>		
 		
 	<h1>Layout</h1>		

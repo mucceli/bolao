@@ -4,7 +4,7 @@
  */
 class RankingController extends AppController {
     
-    var $uses = array('Aposta','User'); 
+    var $uses = array('Aposta','User','Equipe'); 
     const EMPATE = 'EMPATE';
     const VITORIA_TIME1 = 'VITORIA_TIME1';
     const VITORIA_TIME2 = 'VITORIA_TIME2';
@@ -12,7 +12,8 @@ class RankingController extends AppController {
     public function index() {
         $users = $this->User->find('all');
         $apostas = $this->Aposta->find('all',array('recursive' => 2));
-        $ranking = array();        
+        $ranking = array();
+
         foreach ($users as $user) {
             $usuario = $user["User"]["username"];
             $total_pontos = 0;
@@ -23,9 +24,9 @@ class RankingController extends AppController {
                     }
                 }
             }
+            $total_pontos += $user["User"]["pontuacao"];
             $ranking[$usuario] = $total_pontos;
         }
-
         arsort($ranking);
         $this->set('ranking',$ranking);
         $this->set('users',$users);
@@ -33,7 +34,28 @@ class RankingController extends AppController {
 
     public function atualizar_pontos() {
         $apostas = $this->Aposta->find('all',array('recursive' => 2));
-        
+        $users = $this->User->find('all');
+
+        $equipes = $this->Equipe->find('all');
+        $id_campeao = 0;
+
+        foreach ($equipes as $equipe) {
+            if($equipe["Equipe"]["campea"] == 1){
+                $id_campeao = $equipe["Equipe"]["id"];
+            }
+        }
+
+        foreach ($users as $user) {
+            $this->User->id = $user["User"]["id"];
+            if($user["Equipe"]["id"] == $id_campeao){
+                $user["User"]["pontuacao"] = 18;
+            }else{
+                $user["User"]["pontuacao"] = 0;
+            }
+            $user["User"]["flag"] = 1;
+            $this->User->save($user);
+        }
+
         foreach ($apostas as $aposta) {
             //pr($aposta);exit;
             if(!empty($aposta["Aposta"]["golsTime1"]) && !empty($aposta["Aposta"]["golsTime2"])){
@@ -83,6 +105,8 @@ class RankingController extends AppController {
                 $this->Aposta->save($aposta);
             }
         }
+
+
         $this->redirect(array('controller' => 'Ranking','action' => 'index'));
     }
    

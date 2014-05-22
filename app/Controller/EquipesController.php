@@ -8,7 +8,7 @@ class EquipesController extends AppController {
      * Método necessário para adequar as convenções do Cake. Nome do file é  "painel_cadastrar_Equipe.ctp"
      */
     public function index() {
-        $equipes = $this->paginate('Equipe');
+        $equipes = $this->Equipe->find('all');
         $this->set('equipes', $equipes);  
     }
 

@@ -40,7 +40,19 @@ class JogosController extends AppController {
 
     public function registrar_resultado() {
         $jogos = $this->Jogo->find('all', array('order'=>'Jogo.grupo','Jogo.dataJogo'));
-        $this->set('jogos', $jogos);  
+        $this->set('jogos', $jogos);
+        $registro_campeao = 0;
+        $nome_campeao = '';
+        foreach ($jogos as $jogo) {
+            foreach ($jogo["Equipe"] as $obj) {
+                if($obj["campea"] == 1){
+                    $registro_campeao = 1;
+                    $nome_campeao = $obj["nome"];
+                }
+            }
+        }
+        $this->set('registro_campeao', $registro_campeao);
+        $this->set('nome_campeao', $nome_campeao);
     }
 
     public function salvar_resultado() {

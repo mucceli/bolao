@@ -9,7 +9,12 @@ function clean($string) {
 <h1>Registra resultado</h1>
 	<?php echo $this->Session->flash(); ?>
 
-	 <?php echo $this->Html->link('Registre o campeão','resultado_campeao',array('class' => 'button'));?>
+	<?php if($registro_campeao == 1){?>
+		Você registrou que o <?php echo $nome_campeao?> foi o campeão.
+		<?php echo $this->Html->link('Mudei de ideia','resultado_campeao',array('class' => 'button'));?>
+	<?php }else {?>
+		<?php echo $this->Html->link('Registre o campeão','resultado_campeao',array('class' => 'button'));?>
+	<?php }?>
 
 	<!-- Iniciando listagem dos jogos da fase de grupos -->	
 	<div class="jg-grupos">
