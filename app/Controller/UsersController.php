@@ -54,7 +54,7 @@ class UsersController extends AppController {
             $user["User"]["ative"] = false;
             $user["User"]["role"] = 'user';
             if ($this->User->save($user)) {                
-                $this->Session->setFlash("Acesse o e-mail que acabamos de enviar e ative sua conta.Se você não receber o e-mail, confira se a mensagem não foi marcada como Spam.", "default", array('class' => 'alerta_sucesso'));
+                $this->Session->setFlash("Usuário cadastrado! Para ativar sua conta faça o pagamento e entre em contato com o administrador do site.", "default", array('class' => ''));
                 $this->redirect(array('controller' => 'pages', 'action' => 'home'));
             } else {
                 $this->Session->setFlash(__('Ocorreu um erro ao tentar salvar o usuário. Entre em contato com o administrador.'));

@@ -35,7 +35,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('User');
 
 /**
  * Displays a view
@@ -46,7 +46,13 @@ class PagesController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	public function display() {
+
 		$path = func_get_args();
+
+		$numero_participantes = $this->User->find('count');
+		$total_bolao = $numero_participantes * 22;
+		$total_premiacao = $total_bolao - (($total_bolao *17)/100);
+		$this->set('total_premiacao',$total_premiacao);
 
 		$count = count($path);
 		if (!$count) {
