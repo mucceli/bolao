@@ -3,11 +3,11 @@
 </head>
 <body>
 <?php echo $this->Session->flash(); ?>
-	<br>
-	R$<?php echo $total_premiacao ?>
-	<br><br>
-	Fazer validacao dos campos vazios<br>		
-	Botão cadastre-se|login<br>	
-	
+	<div class="valor-bolao">
+		<span>Nesse momento o bolão está acumulado em</span>
+		<strong>R$ <?php echo $total_premiacao ?></strong>
+		<i></i>
+	</div>
+
 </body>
 </html>
