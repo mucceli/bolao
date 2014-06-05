@@ -15,18 +15,6 @@
 <script type="text/javascript">
      $(document).ready(function(){
 
-    $("#UserForm").validate({
-        errorLabelContainer: $("#retornoMensagem"),
-        rules: {
-            'data[User][nome]': 'required',
-            'data[User][descricao]': 'required',
-        },
-        messages: {
-            'data[User][nome]': 'Digite o nome do usuario',
-            'data[User][descricao]': 'Digite a descrição do usuario',
-        }
-    });
-
     $(".password_confirm").focusout(function(){
         $('#flashMessage').remove();
           $pwd = $('.userpassword').val();
