@@ -18,9 +18,6 @@ class ApostasController extends AppController {
             $user_id = $user["User"]["id"];
             $this->User->id = $user_id;
 
-            $apostas = $this->Aposta->find('all',array('conditions' => array('Aposta.user_id' => $user_id),'recursive' => 2, 'order'=>'Jogo.grupo, Jogo.dataJogo'));
-            $this->set('apostas',$apostas);
-
             //Verifica se já existe objeto aposta correspondente ao objeto jogo.
             $jogos = $this->Jogo->find('all');
             foreach ($jogos as $jogo) {
@@ -34,6 +31,9 @@ class ApostasController extends AppController {
                     $this->Aposta->save($novaAposta);
                 }
             }
+
+            $apostas = $this->Aposta->find('all',array('conditions' => array('Aposta.user_id' => $user_id),'recursive' => 2, 'order'=>'Jogo.grupo, Jogo.dataJogo'));
+            $this->set('apostas',$apostas);
         }
     }
    
