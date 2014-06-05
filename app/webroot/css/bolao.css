@@ -41,7 +41,7 @@ html, body {height:100%;}
 	.header-bar a:hover{text-decoration: underline}
 .header-mascote{display: block; width: 127px; height: 144px}
 .header-cnt{position: relative; margin: 15px auto}
-	.header-logo{display: block; width: 273px; height: 58px; position: absolute; left: 167px; top:33px; line-height: 300px; overflow: hidden; background-position: -128px 0}
+	.header-logo{display: block; width: 155px; height: 58px; position: absolute; left: 167px; top:33px; line-height: 300px; overflow: hidden; background-position: -128px 0}
 	.header-nav{position: absolute; top: 111px; left: 167px}
 	.header-nav li{display: inline-block;}
 	.header-nav a{color:#333; text-decoration: none; position: relative; font:15px/30px 'open_sanssemibold';  padding: 0 5px 10px}
