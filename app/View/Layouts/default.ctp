@@ -3,7 +3,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-	Bolão Boleia - GALO DOIDO!
+	Bolão  - GALO DOIDO!
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -21,7 +21,7 @@
 						Olá, <?php  echo $usuariologado; ?>  | <a href="<?php echo $this->webroot.'users/logout' ?>" class="bt-login">Logout
                        </a> 
 					<?php }else {?>
-						 <a href="<?php echo $this->webroot.'users/cadastrar' ?>">Cadastre-se</a> | 
+						 <a href="<?php echo $this->webroot.'users/cadastrar' ?>" class="bt-cadastro">Cadastre-se</a>
 						 <a href="<?php echo $this->webroot.'users/login' ?>" class="bt-login">Entrar</a>
 					<?php }?>
 				</div>

@@ -36,12 +36,14 @@ h1{font: 20px/1.3 'open_sanssemibold'; color:#00A558; margin-bottom: 15px}
 html, body {height:100%;}
 #content{padding-bottom: 100px}
 
-.header-bar{height: 26px; background: #006C9B; text-align: right; color:#FFF; font:11px/26px Tahoma, sans-serif;}
-	.header-bar a{color:#CCC; text-decoration: none}
-	.header-bar a:hover{text-decoration: underline}
+.header-bar{height: 32px; background: #006C9B; text-align: right; color:#FFF; font:12px/32px 'open_sanssemibold';}
+	.header-bar a{color: #aaa;text-decoration: none;display: inline-block;background: #ededed;line-height: 24px; padding: 0 5px;border-radius: 4px;margin-left: 5px}
+	.header-bar a:hover{color: #666}
+    .header-bar a.bt-cadastro{background: #00A558; color: #FFF}
+    .header-bar a.bt-cadastro:hover{color: #ededed}
 .header-mascote{display: block; width: 127px; height: 144px}
 .header-cnt{position: relative; margin: 15px auto}
-	.header-logo{display: block; width: 273px; height: 58px; position: absolute; left: 167px; top:33px; line-height: 300px; overflow: hidden; background-position: -128px 0}
+	.header-logo{display: block; width: 150px; height: 58px; position: absolute; left: 167px; top:33px; line-height: 300px; overflow: hidden; background-position: -128px 0}
 	.header-nav{position: absolute; top: 111px; left: 167px}
 	.header-nav li{display: inline-block;}
 	.header-nav a{color:#333; text-decoration: none; position: relative; font:15px/30px 'open_sanssemibold';  padding: 0 5px 10px}
@@ -151,3 +153,8 @@ footer{background: #00A558; padding: 15px; color:#FFF; margin-top: 60px;position
     bottom:0; left: 0; right: 0}
 .user_block{display: inline-block; width: 17px; height: 24px; background-position: -176px -59px}
 .user_block.off{background-position: -198px -59px}
+
+.valor-bolao{margin-top: 35px}
+.valor-bolao span{display: block; font: 20px/1.3 'open_sanssemibold'; color:#333; margin-bottom: 5px}
+.valor-bolao strong{display: inline-block; color:#00A558; font: 100px/1 'open_sanssemibold'; vertical-align: top}
+.valor-bolao i{display: inline-block; width: 154px; height: 106px; background: url(../img/money.png); margin-left: 10px; vertical-align: top}
